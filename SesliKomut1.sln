@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SesliKomut1", "SesliKomut1\SesliKomut1.csproj", "{E44599AF-6C3D-48DA-A57C-3F9CD4A60DDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleSpeechLib", "GoogleSpeechLib\GoogleSpeechLib.csproj", "{8344AF78-46B6-4BED-AFF9-E573E257AB01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E44599AF-6C3D-48DA-A57C-3F9CD4A60DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E44599AF-6C3D-48DA-A57C-3F9CD4A60DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E44599AF-6C3D-48DA-A57C-3F9CD4A60DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E44599AF-6C3D-48DA-A57C-3F9CD4A60DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8344AF78-46B6-4BED-AFF9-E573E257AB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8344AF78-46B6-4BED-AFF9-E573E257AB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8344AF78-46B6-4BED-AFF9-E573E257AB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8344AF78-46B6-4BED-AFF9-E573E257AB01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
