@@ -1,4 +1,5 @@
 ﻿using CUETools.Codecs;
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,43 +12,74 @@ namespace GoogleSpeechLib
 {
     public class VoiceRecorder
     {
-        [DllImport("winmm.dll")]
-        private static extern int mciSendString(string MciComando, string MciRetorno, int MciRetornoLeng, int CallBack);
-
-        string musica = "";
-        public static bool BeginRecord()
+        static WaveIn sourceStream = null;
+        static DirectSoundOut waveOut = null;
+        static WaveFileWriter waveWriter = null;
+        public static string SuankiKomut = "";
+        public static void BeginRecord()
         {
-            try
-            {
-                mciSendString("open new type waveaudio alias Som", null, 0, 0);
-                mciSendString("record Som", null, 0, 0);
-                return true;
-            }
-            catch (Exception ef)
-            {
-                return false;
-            }
+            //MessageBox.Show("Başlatıldı.");
+            int deviceNumber = RefreshMics();
+
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Wave File (*.wav)|*.wav;";
+
+            SuankiKomut = Application.StartupPath + "\\komutlar\\kmt_" + DateTime.Now.ToShortDateString() + DateTime.Now.Millisecond + ".wav";
+            save.FileName = SuankiKomut;
+
+            sourceStream = new WaveIn();
+            sourceStream.DeviceNumber = deviceNumber;
+            sourceStream.WaveFormat = new WaveFormat(44100, WaveIn.GetCapabilities(deviceNumber).Channels);
+            sourceStream.DataAvailable += new EventHandler<WaveInEventArgs>(sourceStream_DataAvailable);
+            waveWriter = new WaveFileWriter(save.FileName, sourceStream.WaveFormat);
+            sourceStream.StartRecording();
+        }
+        static void sourceStream_DataAvailable(object sender, WaveInEventArgs e)
+        {
+            if (waveWriter == null) return;
+
+            waveWriter.WriteData(e.Buffer, 0, e.BytesRecorded);
+            waveWriter.Flush();
         }
 
-        public static bool StopRecord()
+        static Dictionary<string, int> Mikrofonlar = new Dictionary<string, int>();
+        public static int RefreshMics()
         {
-            try
+            List<WaveInCapabilities> sources = new List<WaveInCapabilities>();
+            for (int i = 0; i < WaveIn.DeviceCount; i++)
+                sources.Add(WaveIn.GetCapabilities(i));
+
+            Mikrofonlar.Clear();
+
+            foreach (var source in sources)
+                Mikrofonlar.Add(source.ProductName, source.Channels);
+
+            for (int i = 0; i < Mikrofonlar.Count; i++)
+                return i;
+
+            return -1;
+        }
+        public static void StopRecord()
+        {
+            if (waveOut != null)
             {
-                mciSendString("pause Som", null, 0, 0);
-                SaveFileDialog save = new SaveFileDialog();
-                save.Filter = "wave|*.wav";
-                if (save.ShowDialog() == DialogResult.OK)
-                {
-                    mciSendString("save Som " + save.FileName, null, 0, 0);
-                    mciSendString("close Som", null, 0, 0);
-                    return true;
-                }
-                return false;
+                waveOut.Stop();
+                waveOut.Dispose();
+                waveOut = null;
             }
-            catch (Exception ef)
+            if (sourceStream != null)
             {
-                return false;
+                sourceStream.StopRecording();
+                sourceStream.Dispose();
+                sourceStream = null;
             }
+            if (waveWriter != null)
+            {
+                waveWriter.Dispose();
+                waveWriter = null;
+            }
+
+            //MessageBox.Show("Durduruldu.");
         }
     }
 }

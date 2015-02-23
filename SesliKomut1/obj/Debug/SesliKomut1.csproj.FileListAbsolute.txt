@@ -56,3 +56,7 @@ C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.c
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.Form1.resources
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.Properties.Resources.resources
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.csproj.GenerateResource.Cache
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\NAudio.dll
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\CUETools.Codecs.dll
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\CUETools.Codecs.FLAKE.dll
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\GoogleSpeechLib.pdb
