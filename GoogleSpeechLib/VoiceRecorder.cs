@@ -2,6 +2,7 @@
 using NAudio.Wave;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -30,16 +31,26 @@ namespace GoogleSpeechLib
             sourceStream = new WaveIn();
             sourceStream.DeviceNumber = deviceNumber;
             sourceStream.WaveFormat = new WaveFormat(44100, WaveIn.GetCapabilities(deviceNumber).Channels);
+            sw = new StreamWriter(Application.StartupPath + "\\bos.txt", false, ASCIIEncoding.Default);
             sourceStream.DataAvailable += new EventHandler<WaveInEventArgs>(sourceStream_DataAvailable);
             waveWriter = new WaveFileWriter(save.FileName, sourceStream.WaveFormat);
             sourceStream.StartRecording();
         }
+        public static StreamWriter sw = null;
         static void sourceStream_DataAvailable(object sender, WaveInEventArgs e)
         {
-            if (waveWriter == null) return;
+            if (waveWriter == null)
+            {
+                sw.Close();
+                return;
+            }
 
-            waveWriter.WriteData(e.Buffer, 0, e.BytesRecorded);
-            waveWriter.Flush();
+            foreach (var item in e.Buffer)
+            {
+                sw.Write(item+" ");
+            }
+            //waveWriter.WriteData(e.Buffer, 0, e.BytesRecorded);
+            //waveWriter.Flush();
         }
 
         static Dictionary<string, int> Mikrofonlar = new Dictionary<string, int>();

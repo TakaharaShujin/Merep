@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Speech.Synthesis;
 
 namespace SesliKomut1
 {
@@ -31,7 +32,7 @@ namespace SesliKomut1
         {
 
         }
-        string sFilePath = @"my1.wav";
+        string sFilePath = "";
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Open Wave File";
@@ -49,6 +50,7 @@ namespace SesliKomut1
 
             txtPath.Text = sFilePath;
             SendFileRun(sFilePath);
+            sFilePath = "";
         }
         private void SendFile(String filePath)
         {
@@ -62,13 +64,25 @@ namespace SesliKomut1
 
                 var table = JsonConvert.DeserializeObject<Results>(responseFromServer).Alternatives;
                 txtLog.Clear();
-                AddLog(table.Rows[0].ItemArray[0].ToString());
+                //AddLog(table.Rows[0].ItemArray[0].ToString());
 
-                //for (int i = 0; i < table.Rows.Count; i++)
-                //{
-                //    var item = table.Rows[i];
-                //    AddLog(item.ItemArray[0].ToString() + System.Environment.NewLine);
-                //}
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    var item = table.Rows[i];
+                    if (item.ItemArray.Count() > 1)
+                    {
+                        if (item.ItemArray[1].ToString() != "")
+                        {
+                            AddLog(item.ItemArray[0].ToString());
+                            //AddLog(item.ItemArray[0].ToString() + "--" + item.ItemArray[1].ToString() + System.Environment.NewLine);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        AddLog(item.ItemArray[0].ToString() + System.Environment.NewLine);
+                    }
+                }
 
                 ReportOnProgress(100, "Sorgu başarıyla tamamlandı");
             }
@@ -142,10 +156,12 @@ namespace SesliKomut1
             [JsonProperty(PropertyName = "alternative")]
             public System.Data.DataTable Alternatives { get; set; }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SendFileRun(sFilePath);
+            if (sFilePath == "")
+                SendFileRun(VoiceRecorder.SuankiKomut);
+            else
+                SendFileRun(sFilePath);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -154,15 +170,14 @@ namespace SesliKomut1
             {
                 button1.BackColor = Color.Red;
 
-                if (VoiceRecorder.BeginRecord())
-                    MessageBox.Show("Başlatıldı.");
+                VoiceRecorder.BeginRecord();
+
             }
             else
             {
                 button1.BackColor = Color.Black;
 
-                if (VoiceRecorder.StopRecord())
-                    MessageBox.Show("Durduruldu.");
+                VoiceRecorder.StopRecord();
             }
 
         }

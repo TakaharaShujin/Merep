@@ -41,6 +41,9 @@
     <Reference Include="CUETools.Codecs.FLAKE">
       <HintPath>..\_referances\CUETools.Codecs.FLAKE.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\_referances\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
