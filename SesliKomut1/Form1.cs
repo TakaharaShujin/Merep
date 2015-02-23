@@ -154,15 +154,15 @@ namespace SesliKomut1
             {
                 button1.BackColor = Color.Red;
 
-                VoiceRecorder.BeginRecord();
-
+                if (VoiceRecorder.BeginRecord())
+                    MessageBox.Show("Başlatıldı.");
             }
             else
             {
                 button1.BackColor = Color.Black;
 
-                VoiceRecorder.StopRecord();
-
+                if (VoiceRecorder.StopRecord())
+                    MessageBox.Show("Durduruldu.");
             }
 
         }
