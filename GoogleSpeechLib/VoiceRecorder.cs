@@ -11,7 +11,7 @@ namespace GoogleSpeechLib
     {
         public static void BeginRecord()
         {
-
+            //7
             //UserDefinedWriter wr = new UserDefinedWriter();
         }
 

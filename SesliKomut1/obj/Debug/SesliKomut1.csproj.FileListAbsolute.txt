@@ -35,3 +35,6 @@ C:\Users\Shujin\Desktop\SesliKomut1\SesliKomut1\obj\Debug\SesliKomut1.csproj.Gen
 C:\Users\Shujin\Desktop\Dev Keçi\Translate\v2\SesliKomut1\bin\Debug\SesliKomut1.exe.config
 C:\Users\Shujin\Desktop\Dev Keçi\Translate\v2\SesliKomut1\obj\Debug\SesliKomut1.exe
 C:\Users\Shujin\Desktop\Dev Keçi\Translate\v2\SesliKomut1\obj\Debug\SesliKomut1.pdb
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\SesliKomut1.exe.config
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.exe
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.pdb
