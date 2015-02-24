@@ -60,3 +60,6 @@ C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\NAudio.dll
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\CUETools.Codecs.dll
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\CUETools.Codecs.FLAKE.dll
 C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\GoogleSpeechLib.pdb
+C:\Users\Shujin\Documents\GitHub\Merep\SesliKomut1\bin\Debug\SesliKomut1.exe.config
+C:\Users\Shujin\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.exe
+C:\Users\Shujin\Documents\GitHub\Merep\SesliKomut1\obj\Debug\SesliKomut1.pdb
