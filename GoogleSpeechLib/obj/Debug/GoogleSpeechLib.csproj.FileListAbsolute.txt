@@ -56,3 +56,8 @@ C:\Users\Shujin\Desktop\SesliKomut1\SesliKomut1\bin\Debug\GoogleSpeechLib.pdb
 C:\Users\Shujin\Desktop\SesliKomut1\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.csprojResolveAssemblyReference.cache
 C:\Users\Shujin\Desktop\SesliKomut1\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.dll
 C:\Users\Shujin\Desktop\SesliKomut1\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.pdb
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\GoogleSpeechLib.dll
+C:\Users\MustafaSalih\Documents\GitHub\Merep\SesliKomut1\bin\Debug\GoogleSpeechLib.pdb
+C:\Users\MustafaSalih\Documents\GitHub\Merep\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.dll
+C:\Users\MustafaSalih\Documents\GitHub\Merep\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.pdb
+C:\Users\MustafaSalih\Documents\GitHub\Merep\GoogleSpeechLib\obj\Debug\GoogleSpeechLib.csprojResolveAssemblyReference.cache
