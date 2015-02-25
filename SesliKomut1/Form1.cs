@@ -74,6 +74,7 @@ namespace SesliKomut1
                         if (item.ItemArray[1].ToString() != "")
                         {
                             AddLog(item.ItemArray[0].ToString());
+
                             //AddLog(item.ItemArray[0].ToString() + "--" + item.ItemArray[1].ToString() + System.Environment.NewLine);
                             return;
                         }
